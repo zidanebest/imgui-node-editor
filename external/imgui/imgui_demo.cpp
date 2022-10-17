@@ -2431,7 +2431,12 @@ static void ShowDemoWindowLayout()
 
         ImGui::Text("SetNextItemWidth/PushItemWidth(100)");
         ImGui::SameLine(); HelpMarker("Fixed width.");
-        ImGui::PushItemWidth(100);
+        static int width=100;
+        ImGui::DragInt("width",&width);
+        
+        ImGui::PushItemWidth(width);
+        ImGui::Text("AAAAA");
+        ImGui::SameLine();
         ImGui::DragFloat("float##1b", &f);
         if (show_indented_items)
         {
@@ -2482,7 +2487,12 @@ static void ShowDemoWindowLayout()
         ImGui::Text("SetNextItemWidth/PushItemWidth(-FLT_MIN)");
         ImGui::SameLine(); HelpMarker("Align to right edge");
         ImGui::PushItemWidth(-FLT_MIN);
+        ImGui::Text("AAAAA");
+        ImGui::SameLine();
         ImGui::DragFloat("##float5a", &f);
+        ImGui::SameLine();
+        ImGui::Text("AAAAA");
+        
         if (show_indented_items)
         {
             ImGui::Indent();

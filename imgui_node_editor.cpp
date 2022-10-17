@@ -2812,7 +2812,7 @@ std::string ed::Settings::Serialize()
     view["visible_rect"]["max"]["x"] = m_VisibleRect.Max.x;
     view["visible_rect"]["max"]["y"] = m_VisibleRect.Max.y;
 
-    return result.dump();
+    return result.dump(2);
 }
 
 bool ed::Settings::Parse(const std::string& string, Settings& settings)

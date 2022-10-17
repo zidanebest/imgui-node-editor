@@ -32,7 +32,7 @@ namespace ed = ax::NodeEditor;
 # define portable_sprintf   sprintf
 # endif
 
-struct Example:
+struct NodeGraph:
     public Application
 {
     using Application::Application;
@@ -70,6 +70,13 @@ struct Example:
         ed::Begin("My Editor", ImVec2(0.0, 0.0f));
             int uniqueId = 1;
 
+            auto my_id=uniqueId++;
+            ed::BeginNode(my_id);
+            ImGui::Text("My Node");
+            ed::BeginPin(uniqueId++, ed::PinKind::Input);
+            ImGui::Text("var");
+            ed::EndPin();
+            ed::EndNode();
 
             // Basic Widgets Demo  ==============================================================================================
             auto basic_id = uniqueId++;
@@ -423,7 +430,7 @@ struct Example:
 
 int Main(int argc, char** argv)
 {
-    Example exampe("Widgets", argc, argv);
+    NodeGraph exampe("Widgets", argc, argv);
 
     if (exampe.Create())
         return exampe.Run();

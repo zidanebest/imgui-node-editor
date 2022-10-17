@@ -58,7 +58,7 @@ static bool Splitter(bool split_vertically, float thickness, float* size1, float
     return SplitterBehavior(bb, id, split_vertically ? ImGuiAxis_X : ImGuiAxis_Y, size1, size2, min_size1, min_size2, 0.0f);
 }
 
-struct Example:
+struct NodeGraph:
     public Application
 {
     using Application::Application;
@@ -242,7 +242,7 @@ struct Example:
 
 int Main(int argc, char** argv)
 {
-    Example exampe("Canvas", argc, argv);
+    NodeGraph exampe("Canvas", argc, argv);
 
     if (exampe.Create())
         return exampe.Run();

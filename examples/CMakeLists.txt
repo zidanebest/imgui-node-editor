@@ -12,7 +12,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 list(APPEND CMAKE_MODULE_PATH ${IMGUI_NODE_EDITOR_ROOT_DIR}/misc/cmake-modules)
 
 # Node editor use C++14
-set(CMAKE_CXX_STANDARD            14)
+set(CMAKE_CXX_STANDARD            17)
 set(CMAKE_CXX_STANDARD_REQUIRED   YES)
 
 
@@ -69,7 +69,7 @@ macro(add_example_executable name)
 
     find_package(imgui REQUIRED)
     find_package(imgui_node_editor REQUIRED)
-    target_link_libraries(${name} PRIVATE imgui imgui_node_editor application)
+    target_link_libraries(${name} PRIVATE imgui imgui_node_editor application )
 
     set(_ExampleBinDir ${CMAKE_BINARY_DIR}/bin)
 
